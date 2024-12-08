@@ -46,15 +46,18 @@ header {
     display: flex;
     padding: 20px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
     a {
       text-decoration: none;
     }
+    ul {
+      list-style: none;
+    }
 
     .nav-menu {
       display: flex;
-      gap: 15px;
+      gap: 25px;
     }
 
     .nav-menu .nav-link {
@@ -69,10 +72,10 @@ header {
         letter-spacing: 1px;
       }
     }
-  }
-
-  ul {
-    list-style: none;
+    .nav-icones i {
+      padding: 0 20px;
+      color: #fff;
+    }
   }
 }
 /* Section accueil */
@@ -102,6 +105,39 @@ header {
         margin: 24px 0 40px;
         font-weight: 700;
       }
+      .buttons {
+        margin: 20px 0;
+        /* border: 1px solid red; */
+        display: flex;
+        gap: 25px;
+
+        a {
+          text-decoration: none;
+          font: 1.2em "Merriweather", sans-serif;
+        }
+
+        .button {
+          padding: 10px 26px;
+          border: 2px solid transparent;
+          color: #720a48;
+          border-radius: 15px;
+          background: #92571f;
+          transition: 0.3s ease;
+        }
+
+        .button:hover,
+        .contact {
+          border-color: #fff;
+          color: #fff;
+          background: transparent;
+        }
+
+        .contact:hover {
+          color: #720a48;
+          border-color: #92571f;
+          background: #92571f;
+        }
+      }
     }
     .accueil-image-wrap {
       max-width: 500px;
@@ -123,11 +159,11 @@ header {
 
     .apropos-image-wrap {
       .apropos-image {
-        margin-left: 15px;
-        width: 350px;
-        height: 350px;
+        margin-left: 25px;
+        width: 400px;
+        height: 400px;
         object-fit: cover;
-        border-radius: 50%;
+        border-radius: 20%;
         cursor: pointer;
         transition: 0.3s ease;
 
@@ -173,10 +209,48 @@ header {
   }
 }
 
+/* Section notre histoire  */
+.section-histoire {
+  background-color: #fadadd;
+
+  .banniere {
+    background: url(../images/Oursons-12.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+    background-attachment: fixed;
+  }
+
+  .section-titre {
+    padding: 15px;
+  }
+
+  .texte {
+    width: 80%;
+    margin: 0 auto;
+    padding: 25px;
+    font-family: "Poppins", sans-serif;
+  }
+  img {
+    width: 300px;
+    padding: 15px;
+    display: flex;
+    margin: 0 auto;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+
+    &:hover {
+      width: 200px;
+      height: 200px;
+      transform: rotate(360deg);
+    }
+  }
+}
+
 /* Sections Produits */
 .section-produits {
   color: #720a48;
-  background-color: #f0a4d077;
+  background-color: rgba(254, 193, 202, 0.427);
   padding: 50px 0 100px;
 
   .produits-content {
@@ -224,6 +298,10 @@ header {
           margin: 0;
           font-size: 20px;
           font-weight: bold;
+
+          .texte {
+            width: 100%;
+          }
         }
       }
     }
