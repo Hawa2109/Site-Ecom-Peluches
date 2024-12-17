@@ -142,12 +142,13 @@ header {
     .accueil-image-wrap {
       max-width: 500px;
       margin-left: 10px;
-      img{
+      img{    /* Pour que l'image soit en noir et blanc quand on le survol */ 
               filter: grayscale(0);
               transition: all .3s ease-in-out;
 
               &:hover{
                 filter: grayscale(1);
+                width: 100%;
               }
       }
     }
