@@ -77,6 +77,71 @@ header {
       color: #fff;
     }
   }
+
+  /* Formulaire d'inscription */
+  .user-container {
+    position: relative;
+    display: inline-block;
+
+    .utilisateur {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Pour mettre le formulaire cacher pr defaut */
+    .form-inscription {
+      display: none;
+      position: absolute;
+      top: 40px; /* pour le mettre sous l'icône */
+      right: 0;
+      width: 250px;
+      padding: 15px;
+      background: #6e0a5a84;
+      /* background: transparent; */
+      box-shadow: 0 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      z-index: 1000;
+
+      h3 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        text-align: center;
+      }
+
+      label {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        background: pink;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background: palevioletred;
+        color: #720a48;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #b3009edb;
+      }
+    }
+  }
+  /* Afficher le formulaire au survol */
+  .user-container:hover .form-inscription {
+    display: block;
+  }
 }
 /* Section accueil */
 .section-accueil {
@@ -140,16 +205,18 @@ header {
       }
     }
     .accueil-image-wrap {
-      max-width: 500px;
+      min-width: 350px;
       margin-left: 10px;
-      img{    /* Pour que l'image soit en noir et blanc quand on le survol */ 
-              filter: grayscale(0);
-              transition: all .3s ease-in-out;
+      img {
+        /* Pour que l'image soit en noir et blanc quand on le survol */
+        filter: grayscale(0);
+        transition: all 0.3s ease-in-out;
+        filter: drop-shadow(1px 1px 50px rgb(245, 119, 119));
 
-              &:hover{
-                filter: grayscale(1);
-                width: 100%;
-              }
+        &:hover {
+          filter: grayscale(1);
+          width: 100%;
+        }
       }
     }
   }
@@ -254,6 +321,51 @@ header {
       transform: rotate(360deg);
     }
   }
+  .text-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    margin: 0;
+    padding: 0;
+    /* background-color: aqua; */
+    color: #0b0a0a;
+    font-family: "Poppins", sans-serif;
+
+    h2 {
+      font-size: 3.5em;
+    }
+    h2 > span {
+      position: relative;
+      display: inline-block;
+      color: #be7937;
+      height: 1.25em;
+      vertical-align: bottom;
+      overflow: hidden;
+    }
+    h2 > span > span {
+      display: block;
+      animation: animateWords 5s infinite ease;
+    }
+  }
+}
+/*  pour l'animation du texte */
+@keyframes animateWords {
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  75% {
+    transform: translateY(-300%);
+  }
+  100% {
+    transform: translateY(-400%);
+  }
 }
 
 /* Sections Produits */
@@ -296,7 +408,6 @@ header {
           object-fit: cover;
           cursor: pointer;
           box-shadow: 15px 5px 5px rgba(226, 144, 215, 0.463);
-
           transition: 0.6s ease-in-out;
 
           &:hover {
