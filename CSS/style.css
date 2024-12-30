@@ -30,10 +30,12 @@ header {
   position: fixed;
   width: 100%;
   z-index: 5;
-  background-color: #720a48;
+  /* background-color: #720a48; */
+  background-color: transparent;
+  backdrop-filter: blur(10px);
 
   h1 {
-    color: #fff;
+    color: #be7937;
     transition: 0.3s ease;
     font-family: "Merriweather", sans-serif;
 
@@ -62,19 +64,21 @@ header {
 
     .nav-menu .nav-link {
       padding: 10px 18px;
-      color: #fff;
+      /* color: #fff; */
+      color: #be7937;
       font-size: 1.3em;
+      font-weight: bold;
       border-radius: 20px;
       transition: 0.3s ease;
 
       &:hover {
-        background-color: #9e05606c;
         letter-spacing: 1px;
+        border-right: 5px solid #be7937;
       }
     }
     .nav-icones i {
       padding: 0 20px;
-      color: #fff;
+      color: #be7937;
     }
   }
 
@@ -145,8 +149,21 @@ header {
 }
 /* Section accueil */
 .section-accueil {
-  min-height: 100vh;
-  background-color: #720a48;
+  /* min-height: 100vh; */
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(
+    45deg,
+    #720a48,
+    #94316c,
+    #5f004f,
+    #a50267,
+    #720a48
+  );
+  /* background: linear-gradient(120deg, #720a48, #ff0099, #ff9c00); */
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+  /* background-color: #720a48; */
 
   .section-content {
     display: flex;
@@ -208,17 +225,24 @@ header {
       min-width: 350px;
       margin-left: 10px;
       img {
-        /* Pour que l'image soit en noir et blanc quand on le survol */
-        filter: grayscale(0);
-        transition: all 0.3s ease-in-out;
-        filter: drop-shadow(1px 1px 50px rgb(245, 119, 119));
+        transition: all 1s ease-in-out;
 
         &:hover {
-          filter: grayscale(1);
-          width: 100%;
+          filter: drop-shadow(1px 1px 50px rgb(4, 28, 88));
         }
       }
     }
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
@@ -283,6 +307,39 @@ header {
       }
     }
   }
+  .btn-animee {
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #720a48;
+    font-family: "Merriweather", sans serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #0b0a0a;
+    overflow: hidden;
+    transition: color 0.3s ease-in-out;
+  }
+  .btn-animee::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -24px;
+    width: 0;
+    height: 100%;
+    background-color: #be7937;
+    transform: skewX(45deg);
+    transition: width 0.7s ease-in-out;
+    z-index: -1;
+  }
+  .btn-animee:hover {
+    color: #720a48;
+    border-radius: 10px;
+  }
+  .btn-animee:hover::before {
+    width: 150%;
+  }
 }
 
 /* Section notre histoire  */
@@ -308,19 +365,28 @@ header {
     padding: 25px;
     font-family: "Poppins", sans-serif;
   }
-  img {
-    width: 300px;
-    padding: 15px;
-    display: flex;
-    margin: 0 auto;
-    transition: width 2s, height 2s, background-color 2s, transform 2s;
 
-    &:hover {
-      width: 200px;
-      height: 200px;
-      transform: rotate(360deg);
-    }
+  .img-animation {
+    margin: 100px 0 0 200px;
+    width: 70%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
   }
+  .img-animation img {
+    width: 15%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    transition: all ease-in-out 0.5s;
+  }
+  .img-animation img:hover {
+    width: 45%;
+    box-shadow: 10px 10px 5px rgba(62, 1, 32, 0.461);
+  }
+
   .text-animation {
     display: flex;
     align-items: center;
